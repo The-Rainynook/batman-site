@@ -415,6 +415,42 @@ html[lang=ar]:root:not([data-theme="day"]) .sec>h3{font-family:"Reem Kufi",sans-
 .ibody p+p{margin-top:12px}
 :root[data-theme="day"] .facts{background:rgba(255,255,255,.04);border-inline-start-color:var(--accent)}
 html[lang=ar] .facts{direction:rtl}
+
+/* ===== circular profile photos, members, comics management ===== */
+.avc{--s:36px;flex:none;width:var(--s);height:var(--s);border-radius:50%!important;overflow:hidden;display:inline-grid;place-items:center;background:var(--accent);color:var(--on);font:800 calc(var(--s)*.42) "Segoe UI",sans-serif;line-height:1;vertical-align:middle;clip-path:none!important}
+.avc img{width:100%;height:100%;object-fit:cover;display:block;filter:none!important}
+.ib .avc{border:1px solid rgba(255,255,255,.25)}
+.meh{display:flex;align-items:center;gap:18px}.meh h2{margin:0}.meh p{margin:4px 0 0}
+.avedit{display:flex;align-items:center;gap:18px;margin:0 0 22px;padding-bottom:18px;border-bottom:1px solid var(--line)}.avedit>div{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.avbtn{display:inline-block;cursor:pointer;background:var(--accent);color:var(--on);border:0;padding:9px 20px;font-weight:700;border-radius:10px;font-family:inherit}
+.mbrs{margin:0 0 20px}.mbrl{display:flex;flex-wrap:wrap;gap:14px}.mb{display:flex;flex-direction:column;align-items:center;gap:4px;width:64px;text-align:center}.mb small{font-size:.72rem;color:var(--muted);max-width:64px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.th summary .avc{--s:42px}.tact{display:flex;align-items:center;gap:12px;margin:6px 0 10px}
+.rph{display:flex;align-items:center;gap:8px;margin-bottom:2px}.rph small{color:var(--muted)}
+.cmgr{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:6px}
+.pubp{margin-bottom:18px}.pubp>summary{font-size:1.05rem}
+.fpr{cursor:pointer}.fpr .fav{position:static}
+html[lang=ar] :is(.meh,.avedit,.mbrs,.tact,.rph,.cmgr){direction:rtl}
+
+:root:not([data-theme="day"]) .mt.on{background:var(--accent);color:var(--on)}
+
+/* ===== social: profiles, follow, messages ===== */
+.pl{display:inline-flex;align-items:center;gap:8px;border:0;background:none;color:inherit;font:inherit;cursor:pointer;padding:2px 0;text-align:start}.pl b{font-weight:700}.pl small{display:block;color:var(--muted);font-weight:400}.pl:hover b{color:var(--accent)}
+.cby{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:2px 0 6px}
+.tm[data-user],.mb{cursor:pointer}.mb{border:0;background:none;color:inherit;font:inherit}
+.uh .ubio{margin-top:8px;color:var(--ink);opacity:.9;max-width:52ch}.cnts{display:flex;gap:24px;margin:6px 0 14px}.cnts b{color:var(--accent);font-size:1.15rem}.uact{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:0 0 8px}
+.fitem{position:relative}.fitem.new .cmc{outline:1px solid var(--accent)}.fpr.new{outline:1px solid var(--accent)}
+.chath{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin:0 0 12px}
+.chat{display:flex;flex-direction:column;gap:8px;max-height:52vh;overflow-y:auto;padding:12px;margin:0 0 12px;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px}
+.bub{max-width:78%;padding:9px 14px;border-radius:16px;line-height:1.7}.bub p{margin:0;white-space:pre-wrap;word-break:break-word}.bub small{display:block;margin-top:2px;font-size:.7rem;opacity:.65}
+.bub.me{align-self:flex-end;background:var(--accent);color:var(--on);border-end-end-radius:4px}.bub.oth{align-self:flex-start;background:var(--surface2);border:1px solid var(--line);border-end-start-radius:4px}
+.chatin{margin-top:0}
+.mrow.cv{cursor:pointer}.mrow.cv.unr{outline:1px solid var(--accent)}.cvl{display:flex;align-items:center;gap:12px;min-width:0}.cvl small{display:block;color:var(--muted);max-width:44ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bdg{position:absolute;top:2px;right:2px;min-width:16px;height:16px;padding:0 4px;display:grid;place-items:center;border-radius:99px;background:#e5483d;color:#fff;font:700 10px/1 "Segoe UI",sans-serif;font-style:normal;z-index:3}
+.bdg.in{position:static;min-width:22px;height:22px;font-size:12px}
+.ib{position:relative}
+html[lang=ar] :is(.uh,.cnts,.uact,.chath,.cby,.chatin){direction:rtl}
+.chat{direction:ltr}.bub p{unicode-bidi:plaintext;text-align:start}
+
 </style>
 </head>
 <body>
@@ -468,7 +504,7 @@ p4:{h:["الأعداء","His enemies"],s:["من يقف في طريقه في جو
 [["هوجو سترينج","Hugo Strange"],["طبيب نفسي منحرف يستغل علمه لأغراض مظلمة.","A twisted psychiatrist who uses his science for dark ends."],"e_strange"],
 [["رأس الغول","Ra’s al Ghul"],["زعيم منظمة قاتلة قديمة، وخصم خطير ذو نفوذ عالمي.","Leader of an ancient assassin order, a dangerous foe with global reach."],"e_ras"],
 [["فريق المرتزقة والقتلة","Mercenaries & assassins"],["مجموعة قتلة مرتزقة ينفذون مهماتهم لمن يدفع.","A band of hired killers who work for whoever pays."],"e_team"],
-[["محكمة البوم","Court of Owls"],["جمعية سرية من النخبة تحكم جوثام من الظل منذ قرون.","A secret society of elites ruling Gotham from the shadows for centuries."],"e_owls"]]}]},p5:{"h":["القصص المصوّرة","Comics"],"s":["قصص مصوّرة مختارة عن باتمان وجوثام.","Selected comics about Batman and Gotham."],"secs":[{"t":"comics","title":["قصص مختارة","Selected stories"],"c":[[["النكتة القاتلة","The Killing Joke"],["مواجهة قصيرة ومؤثرة بين باتمان والجوكر، مع نظرة على أصل محتمل للجوكر.","A short, striking confrontation between Batman and the Joker, with a look at a possible origin for the Joker."],"1988",["آلان مور وبراين بولاند","Alan Moore & Brian Bolland"]],[["سقوط الفارس","Knightfall"],["يطلق بين نزلاء أركام ليرهق باتمان، ثم يواجهه ويكسر ظهره.","Bane frees Arkham’s inmates to exhaust Batman, then confronts him and breaks his back."],"1993",["عدة كتّاب وفنانين","Multiple writers and artists"]],[["محكمة البوم","Court of Owls"],["يكتشف باتمان أن جوثام تخفي جمعية سرية قديمة تراقب المدينة منذ زمن.","Batman discovers that Gotham hides an old secret society that has watched the city for ages."],"2011",["سكوت سنايدر وغريغ كابولو","Scott Snyder & Greg Capullo"]],[["مصحة أركام","Arkham Asylum"],["يدخل باتمان المصحة بعد أن يستولي عليها النزلاء، في رحلة نفسية داكنة.","Batman enters the asylum after the inmates take it over, in a dark psychological journey."],"1989",["غرانت موريسون وديف ماكين","Grant Morrison & Dave McKean"]],[["هاش","Hush"],["لغز يجرّ باتمان إلى مواجهة أعدائه، ويكشف خصماً يعرف أسراره.","A mystery pulls Batman into facing his rogues and reveals an enemy who knows his secrets."],"2002",["جيف لوب وجيم لي","Jeph Loeb & Jim Lee"]],[["جوثام بضوء الغاز","Gotham by Gaslight"],["باتمان في جوثام القرن التاسع عشر، يلاحق قاتلاً شبيهاً بجاك السفّاح.","Batman in nineteenth-century Gotham, hunting a Jack the Ripper–style killer."],"1989",["برايان أوغستين ومايك مينيولا","Brian Augustyn & Mike Mignola"]]]}]},p6:{"h":["النقاش","Discussion"],"s":["شارك رأيك، اسأل، واقرأ آراء المعجبين الآخرين.","Share your view, ask questions and read what other fans think."],"secs":[{"t":"forum","title":["المواضيع","Topics"]}]}},
+[["محكمة البوم","Court of Owls"],["جمعية سرية من النخبة تحكم جوثام من الظل منذ قرون.","A secret society of elites ruling Gotham from the shadows for centuries."],"e_owls"]]}]},p5:{"h":["القصص المصوّرة","Comics"],"s":["كوميكس باتمان وجوثام، تُضاف وتُنشر هنا.","Batman and Gotham comics, added and published here."],"secs":[{"t":"comics","title":["قصص مختارة","Selected stories"],"c":[]}]},p6:{"h":["النقاش","Discussion"],"s":["شارك رأيك، اسأل، واقرأ آراء المعجبين الآخرين.","Share your view, ask questions and read what other fans think."],"secs":[{"t":"forum","title":["المواضيع","Topics"]}]}},
 day:{bg:"#1a0a0e",list:DAY_IMGS,emblem:"logoWayne",art:"wy_bruce",hero:["b2","b8","b4","b9","b1","b3","b6"],part:"WAYNE",about:["عن بروس","About Bruce"],hl:{title:["أبرز الممتلكات","Key properties"],ids:["w_tower","w_cars","w_air","w_inv","w_art"]},pk:"w_manor",cta:["ادخل عالم وين","ENTER WAYNE’S WORLD"],ctaGo:"p1",hw:"wy_chess",hp:"wy_chess",logo:"wy_logo",pkT:["لمحة","Sneak peek"],kick:["وريث جوثام | رجل أعمال","GOTHAM HEIR | BUSINESSMAN"],
 name:["بروس واين","Bruce Wayne"],tag:["رجل الأعمال والوريث","Businessman & heir"],
 desc:["ملياردير جوثام الهادئ. شركته ومؤسسته الخيرية تدعمان المدينة في وضح النهار.","Gotham’s easygoing billionaire. His company and foundation support the city in daylight."],
@@ -506,7 +542,7 @@ p4:{h:["المنافسون","Rivals"],s:["شخصيات وشركات تنافس �
 [["رولاند داغيت","Roland Daggett"],["صناعي طموح يتصارع على العقود والأراضي الكبرى.","An ambitious industrialist fighting over major contracts and land."],"r_daggett"],
 [["كارمين فالكون","Carmine Falcone"],["زعيم عائلة نافذة تدير أعمالاً واسعة في المدينة.","Head of a powerful family running wide-reaching business in the city."],"r_falcone"],
 [["إدوارد ناشتون","Edward Nashton"],["رجل ذكي بنى سمعته على الدقة وحل الألغاز.","A sharp mind who built his name on precision and solving puzzles."],"r_nashton"],
-[["ستار لابز","S.T.A.R. Labs"],["مختبرات أبحاث متقدمة تنافس في العلوم والتقنية.","Advanced research labs competing in science and technology."],"r_starlabs"]]}]},p5:{"h":["القصص المصوّرة","Comics"],"s":["قصص تدور حول بروس وين، الرجل خلف القناع.","Stories about Bruce Wayne, the man behind the mask."],"secs":[{"t":"comics","title":["قصص مختارة","Selected stories"],"c":[[["السنة الأولى","Year One"],["يعود بروس وين إلى جوثام بعد سنوات من التدريب ويخوض عامه الأول في محاربة الجريمة.","Bruce Wayne returns to Gotham after years of training and spends his first year fighting crime."],"1987",["فرانك ميلر وديفيد مازوكيللي","Frank Miller & David Mazzucchelli"]],[["السنة صفر","Zero Year"],["إعادة سرد لبدايات بروس وكيف صار باتمان وسط مدينة تغرق في الفوضى.","A retelling of Bruce’s beginnings and how he became Batman as the city sinks into chaos."],"2013",["سكوت سنايدر وغريغ كابولو","Scott Snyder & Greg Capullo"]],[["الأنا","Ego"],["يواجه بروس صوته الداخلي: هل الرجل هو القناع أم القناع هو الرجل؟","Bruce confronts his inner voice: is the man the mask, or the mask the man?"],"2000",["داروين كوك","Darwyn Cooke"]],[["الأرض الأولى","Earth One"],["نسخة مُعاد تخيّلها من الأصل، ببروس أكثر هشاشة وأقل خبرة.","A reimagined origin with a more vulnerable, less experienced Bruce."],"2012",["جيف جونز وغاري فرانك","Geoff Johns & Gary Frank"]],[["عودة فارس الظلام","The Dark Knight Returns"],["بروس وين المتقدّم في العمر يخرج من تقاعده ليعيد القناع إلى جوثام.","An older Bruce Wayne comes out of retirement to bring the cowl back to Gotham."],"1986",["فرانك ميلر","Frank Miller"]],[["الهالوين الطويل","The Long Halloween"],["سلسلة جرائم في الأعياد، يتعاون فيها بروس مع غوردون وهارفي دنت ضد عائلة فالكوني.","A string of holiday killings in which Bruce, Gordon and Harvey Dent work against the Falcone family."],"1996",["جيف لوب وتيم سيل","Jeph Loeb & Tim Sale"]]]}]},p6:{"h":["النقاش","Discussion"],"s":["شارك رأيك، اسأل، واقرأ آراء المعجبين الآخرين.","Share your view, ask questions and read what other fans think."],"secs":[{"t":"forum","title":["المواضيع","Topics"]}]}}
+[["ستار لابز","S.T.A.R. Labs"],["مختبرات أبحاث متقدمة تنافس في العلوم والتقنية.","Advanced research labs competing in science and technology."],"r_starlabs"]]}]},p5:{"h":["القصص المصوّرة","Comics"],"s":["كوميكس عن بروس وين، الرجل خلف القناع.","Comics about Bruce Wayne, the man behind the mask."],"secs":[{"t":"comics","title":["قصص مختارة","Selected stories"],"c":[]}]},p6:{"h":["النقاش","Discussion"],"s":["شارك رأيك، اسأل، واقرأ آراء المعجبين الآخرين.","Share your view, ask questions and read what other fans think."],"secs":[{"t":"forum","title":["المواضيع","Topics"]}]}}
 };
 
 /* ===== المحرك: غالباً ما تحتاج تعدّل هنا ===== */
@@ -524,10 +560,10 @@ const FORUM={"night":[{"t":["ما أفضل قصة مصوّرة لباتمان ل
 const tx=v=>Array.isArray(v)?t(v):v;
 const sec=(s,si)=>{
  const ti=s.title?`<h3>${t(s.title)}</h3>`:"";
- if(s.t==="cards")return `<div class="sec">${ti}<div class="grid">${s.c.map((c,i)=>{const id=c[2]||`${ST.mode}_${ST.page}_${si}_${i}`;return `<div class="card" data-item="${id}" tabindex="0" role="button">${heart("i:"+id)}${s.media?`<div class="media">${IMG[c[2]]?fr(c[2],t(c[0])):(ar()?"مكان الصورة":"Image here")}</div>`:""}<div class="b"><h3>${t(c[0])}</h3><p>${t(c[1])}</p><span class="more">${ar()?"التفاصيل ‹":"Details ›"}</span></div></div>`}).join("")}</div></div>`;
- if(s.t==="people")return `<div class="sec">${ti}<div class="pgrid">${s.c.map(p=>`<figure class="pc" data-item="${p.k}" tabindex="0" role="button">${heart("i:"+p.k)}${fr(p.k,t(p.n))}<figcaption><b>${t(p.n)}</b>${p.r?`<small>${t(p.r)}</small>`:""}</figcaption></figure>`).join("")}</div></div>`;
+ if(s.t==="cards")return `<div class="sec">${ti}<div class="grid">${s.c.map((c,i)=>{const id=c[2]||`${ST.mode}_${ST.page}_${si}_${i}`;return `<div class="card" data-item="${id}" tabindex="0" role="button">${s.media?`<div class="media">${IMG[c[2]]?fr(c[2],t(c[0])):(ar()?"مكان الصورة":"Image here")}</div>`:""}<div class="b"><h3>${t(c[0])}</h3><p>${t(c[1])}</p><span class="more">${ar()?"التفاصيل ‹":"Details ›"}</span></div></div>`}).join("")}</div></div>`;
+ if(s.t==="people")return `<div class="sec">${ti}<div class="pgrid">${s.c.map(p=>`<figure class="pc" data-item="${p.k}" tabindex="0" role="button">${fr(p.k,t(p.n))}<figcaption><b>${t(p.n)}</b>${p.r?`<small>${t(p.r)}</small>`:""}</figcaption></figure>`).join("")}</div></div>`;
  if(s.t==="chips")return `<div class="sec">${ti}<div class="chips">${s.c.map(c=>`<span>${t(c)}</span>`).join("")}</div></div>`;
- if(s.t==="comics")return `<div class="sec">${ti}<div class="cgrid">${s.c.map((c,i)=>`<article class="cmc">${heart("k:"+ST.mode+":"+i)}<div class="cov"><span class="cy">${c[2]}</span><b>${t(c[0])}</b><i>✦</i></div><div class="cb"><h3>${t(c[0])}</h3><small>${t(c[3])}</small><p>${t(c[1])}</p></div></article>`).join("")}</div></div>`+commHtml();
+ if(s.t==="comics")return (!(s.c&&s.c.length)?"":`<div class="sec">${ti}<div class="cgrid">${s.c.map((c,i)=>`<article class="cmc"><div class="cov"><span class="cy">${c[2]}</span><b>${t(c[0])}</b><i>✦</i></div><div class="cb"><h3>${t(c[0])}</h3><small>${t(c[3])}</small><p>${t(c[1])}</p></div></article>`).join("")}</div></div>`)+commHtml();
  if(s.t==="forum"){if(AUTH.on)return `<div class="sec forum">${ti}${forumDb()}</div>`;const F=FORUM[ST.mode];return `<div class="sec forum">${ti}<div class="fnew"><input id="fn_t" maxlength="90" placeholder="${ar()?"عنوان الموضوع":"Topic title"}"><textarea id="fn_b" rows="3" maxlength="600" placeholder="${ar()?"اكتب رسالتك…":"Write your message…"}"></textarea><button class="btn fbtn" data-newtopic>${ar()?"انشر الموضوع":"Post topic"}</button></div>
 <div class="fl">${F.map((th,i)=>`<details class="th"${ST.openT===i?" open":""}><summary><span class="av">${String(tx(th.a)).trim().charAt(0).toUpperCase()}</span><span class="tt"><b>${tx(th.t)}</b><small>${tx(th.a)} · ${tx(th.d)}</small></span><span class="rc">${th.r.length}</span></summary><div class="tb"><p>${tx(th.b)}</p>${th.r.map(r=>`<div class="rp"><b>${tx(r.a)}</b><p>${tx(r.b)}</p></div>`).join("")}<div class="rf"><input id="rp_${i}" maxlength="400" placeholder="${ar()?"اكتب ردك…":"Write a reply…"}"><button class="btn" data-reply="${i}">${ar()?"رد":"Reply"}</button></div></div></details>`).join("")}</div>
 <p class="fnote">${ar()?"تصميم تجريبي: المشاركات لا تُحفظ وتختفي عند تحديث الصفحة.":"Design preview: posts aren’t saved and reset on refresh."}</p></div>`}
@@ -569,16 +605,16 @@ function itemHtml(d){
  const B=buildItems(),it=B.map[ST.item];if(!it)return home(d);
  const lst=B.pages[it.pk],ix=lst.indexOf(it.id),pv=lst[(ix-1+lst.length)%lst.length],nx=lst[(ix+1)%lst.length],inf=INFO[it.id];
  return `<button class="back" data-go="${ST.back}">${ar()?"رجوع ←":"← Back"}</button>
-<article class="item${it.img?"":" solo"}">${it.img?`<div class="ifr"><img src="${IMG[it.img]}" alt="${t(it.n)}"></div>`:""}<div class="itx"><span class="badge">${t(it.g)}</span><h2>${t(it.n)} ${heart("i:"+it.id,"inl")}</h2>${it.s?`<p class="isub">${t(it.s)}</p>`:""}${dtl(it,inf)}</div></article>
+<article class="item${it.img?"":" solo"}">${it.img?`<div class="ifr"><img src="${IMG[it.img]}" alt="${t(it.n)}"></div>`:""}<div class="itx"><span class="badge">${t(it.g)}</span><h2>${t(it.n)}</h2>${it.s?`<p class="isub">${t(it.s)}</p>`:""}${dtl(it,inf)}</div></article>
 <div class="pn"><button data-item="${pv}">${ar()?"السابق ←":"‹ Previous"}</button><button data-item="${nx}">${ar()?"→ التالي":"Next ›"}</button></div>`}
-function bodyHtml(){const d=C[ST.mode],pg=d[ST.page];if(ST.page==="login")return authHtml(d);if(ST.page==="me")return meHtml(d);if(ST.page==="item")return itemHtml(d);return ST.page==="home"?home(d):`<div class="ph"><h2>${t(pg.h)}</h2><p>${t(pg.s)}</p></div>${pg.secs.map(sec).join("")}`}
+function bodyHtml(){const d=C[ST.mode],pg=d[ST.page];if(ST.page==="login")return authHtml(d);if(ST.page==="me")return meHtml(d);if(ST.page==="user")return userHtml(d);if(ST.page==="item")return itemHtml(d);return ST.page==="home"?home(d):`<div class="ph"><h2>${t(pg.h)}</h2><p>${t(pg.s)}</p></div>${pg.secs.map(sec).join("")}`}
 function render(){
  const d=C[ST.mode],R=document.documentElement;
  R.dataset.theme=ST.mode;R.lang=ST.lang;R.dir="ltr";if(IMG.bat_bg&&!R.style.getPropertyValue("--batbg"))R.style.setProperty("--batbg","url("+IMG.bat_bg+")");R.classList.toggle("ishome",ST.page==="home");
  const k=ST.page,body=bodyHtml();
  const tab=(key,i)=>`<button class="tab" data-go="${key}" ${(k==="item"?ST.back:k)===key?'aria-current="page"':""}>${t(d.nav[i])}</button>`;
  app.innerHTML=`<div class="top"><div class="brand"><img src="${IMG[d.list[0]]}" alt=""><span>${t(d.name)}</span></div>
-<div class="tools"><button class="ib" data-go="${AUTH.user()?"me":"login"}" aria-pressed="${ST.page==="login"||ST.page==="me"}" aria-label="${ar()?"تسجيل الدخول":"Sign in"}">${AUTH.user()?`<b class="ini">${esc(AUTH.name().charAt(0).toUpperCase())}</b>`:`<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>`}</button><button class="ib" id="fxBtn" aria-pressed="${ST.fx}" aria-label="${ST.mode==="night"?(ar()?"المطر":"Rain"):(ar()?"أشعة الشمس":"Sunlight")}">${ST.mode==="night"?"🌧":"☀️"}</button>
+<div class="tools"><button class="ib" data-go="${AUTH.user()?"me":"login"}" aria-pressed="${ST.page==="login"||ST.page==="me"}" aria-label="${ar()?"تسجيل الدخول":"Sign in"}">${AUTH.user()?topIcon():`<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>`}</button><button class="ib" id="fxBtn" aria-pressed="${ST.fx}" aria-label="${ST.mode==="night"?(ar()?"المطر":"Rain"):(ar()?"أشعة الشمس":"Sunlight")}">${ST.mode==="night"?"🌧":"☀️"}</button>
 <button class="ib" id="langBtn" aria-label="${ar()?"English":"العربية"}">${ar()?"EN":"ع"}</button>
 <button class="ib" id="txBtn" aria-pressed="${ST.tx==="fx"}" aria-label="${ar()?"تأثير التبديل":"Switch effect"}"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg></button><button class="ib theme" id="themeBtn" aria-label="${ar()?"تبديل الوضع":"Switch mode"}">${ST.mode==="night"?MOON:SUN}</button></div></div>
 <main class="panel${ST.anim?" in":""}${ST.page==="login"?" lgp":""}${ST.page==="home"?" hmp":""}">${body}</main>
@@ -700,18 +736,22 @@ const DB=(()=>{
   upd:(tb,o,row)=>rq("/rest/v1/"+tb+"?"+q(o),{method:"PATCH",body:row,prefer:"return=representation"}),
   del:(tb,o)=>rq("/rest/v1/"+tb+"?"+q(o),{method:"DELETE"}),
   rpc:(fn,args)=>rq("/rest/v1/rpc/"+fn,{method:"POST",body:args||{}}),
-  async up(path,file){await AUTH.fresh();let r;
-   try{r=await fetch(B+"/storage/v1/object/comics/"+path,{method:"POST",headers:{apikey:AUTH_CFG.key,Authorization:"Bearer "+AUTH.token(),"Content-Type":file.type||"application/octet-stream","x-upsert":"false"},body:file})}catch(e){throw{code:"network"}}
+  async up(path,file,bk){await AUTH.fresh();let r;
+   try{r=await fetch(B+"/storage/v1/object/"+(bk||"comics")+"/"+path,{method:"POST",headers:{apikey:AUTH_CFG.key,Authorization:"Bearer "+AUTH.token(),"Content-Type":file.type||"application/octet-stream","x-upsert":"false"},body:file})}catch(e){throw{code:"network"}}
    if(!r.ok){let j={};try{j=await r.json()}catch(e){}throw{code:String(j.error||""),msg:String(j.message||""),status:r.status}}},
-  async rm(paths){if(!paths.length)return;await AUTH.fresh();try{await fetch(B+"/storage/v1/object/comics",{method:"DELETE",headers:{apikey:AUTH_CFG.key,Authorization:"Bearer "+AUTH.token(),"Content-Type":"application/json"},body:JSON.stringify({prefixes:paths})})}catch(e){}},
-  url:p=>B+"/storage/v1/object/public/comics/"+p}})();
+  async rm(paths,bk){if(!paths.length)return;await AUTH.fresh();try{await fetch(B+"/storage/v1/object/"+(bk||"comics"),{method:"DELETE",headers:{apikey:AUTH_CFG.key,Authorization:"Bearer "+AUTH.token(),"Content-Type":"application/json"},body:JSON.stringify({prefixes:paths})})}catch(e){}},
+  url:p=>B+"/storage/v1/object/public/comics/"+p,
+  aurl:p=>B+"/storage/v1/object/public/avatars/"+p,
+  async cnt(tb,f){await AUTH.fresh();try{const r=await fetch(B+"/rest/v1/"+tb+"?select=id&limit=1"+(f?"&"+f:""),{headers:{apikey:AUTH_CFG.key,...bearer(AUTH.token()),Prefer:"count=exact"}});const m=(r.headers.get("content-range")||"").match(/\/(\d+)$/);return m?+m[1]:null}catch(e){return null}}}})();
+let AV=false;const avs=()=>AV?",avatar_path":"";
+async function probeCaps(){try{await Promise.race([DB.sel("profiles",{select:"avatar_path",limit:1}).then(()=>{AV=true},()=>{AV=false}),new Promise(r=>setTimeout(r,3000))])}catch(e){}}
 
 const U={me:["حسابي","My account"],needLogin:["سجّل دخولك أولاً.","Please sign in first."],tProfile:["الملف الشخصي","Profile"],tFavs:["المفضلة","Favorites"],tPosts:["منشوراتي","My posts"],tStudio:["النشر","Publish"],tAdmin:["الإدارة","Admin"],tSet:["الإعدادات","Settings"],
  r_member:["عضو","Member"],r_publisher:["ناشر","Publisher"],r_admin:["مشرف","Admin"],dname:["الاسم المعروض","Display name"],uname:["اسم المستخدم","Username"],bio:["نبذة عنك","About you"],save:["حفظ","Save"],saved:["تم الحفظ.","Saved."],
  unameBad:["اسم المستخدم: من ٣ إلى ٢٠ حرفاً إنجليزياً صغيراً أو أرقاماً أو _","Username: 3–20 lowercase letters, numbers or _"],unameTaken:["اسم المستخدم مأخوذ.","That username is taken."],err:["صار خطأ. حاول مرة ثانية.","Something went wrong. Try again."],denied:["ما عندك صلاحية لهذا الإجراء.","You don’t have permission to do that."],
- loading:["جارٍ التحميل…","Loading…"],loadErr:["تعذّر التحميل.","Couldn’t load this."],favEmpty:["ما أضفت شي للمفضلة بعد. اضغط ♥ على أي بطاقة.","Nothing saved yet. Tap ♥ on any card."],fav:["المفضلة","Favorite"],
+ loading:["جارٍ التحميل…","Loading…"],loadErr:["تعذّر التحميل.","Couldn’t load this."],favEmpty:["ما أضفت شي للمفضلة بعد. اضغط ♥ على أي كوميكس أو موضوع.","Nothing saved yet. Tap ♥ on any comic or topic."],fav:["المفضلة","Favorite"],
  postsT:["مواضيعي","My topics"],repliesT:["ردودي","My replies"],noPosts:["ما نشرت شي بعد.","You haven’t posted anything yet."],
- community:["من المجتمع","From the community"],noComm:["ما في كوميكس منشورة من المجتمع بعد.","No community comics yet."],read:["اقرأ","Read"],loginToPost:["سجّل دخولك عشان تنشر وترد.","Sign in to post and reply."],
+ community:["من المجتمع","From the community"],noComm:["ما في كوميكس بعد.","No comics yet."],read:["اقرأ","Read"],loginToPost:["سجّل دخولك عشان تنشر وترد.","Sign in to post and reply."],
  reqTitle:["اطلب صلاحية النشر","Request publishing access"],reqText:["النشر يحتاج موافقة المشرف. اكتب لنا ماذا تريد أن تنشر.","Publishing needs admin approval. Tell us what you’d like to publish."],reqSend:["أرسل الطلب","Send request"],reqPending:["طلبك قيد المراجعة.","Your request is under review."],reqRejected:["تم رفض طلبك. تقدر ترسل طلباً جديداً.","Your request was declined. You can send a new one."],reqSent:["تم إرسال الطلب.","Request sent."],reqMsg:["اكتب رسالتك","Your message"],
  newSpace:["إنشاء خانة جديدة","Create a new space"],spTitle:["اسم الخانة","Space name"],spDesc:["وصف قصير","Short description"],spSide:["تظهر في","Shown on"],sideN:["باتمان","Batman"],sideD:["بروس وين","Bruce Wayne"],sideB:["الاثنين","Both"],create2:["إنشاء","Create"],
  team:["الفريق","Team"],addMember:["أضف عضواً","Add member"],mUser:["اسم مستخدم العضو","Member username"],notFound:["ما لقينا هذا المستخدم.","User not found."],already:["العضو مضاف مسبقاً.","Already a member."],
@@ -720,14 +760,33 @@ const U={me:["حسابي","My account"],needLogin:["سجّل دخولك أولا
  fileBad:["الغلاف مطلوب. الصور فقط (JPG أو PNG أو WebP) وبحد أقصى 5 ميغابايت للصورة و90 صفحة.","A cover is required. Images only (JPG, PNG or WebP), max 5 MB each and 90 pages."],uploading:["جارٍ الرفع…","Uploading…"],published:["تم الحفظ.","Saved."],
  reqs:["طلبات النشر","Publishing requests"],noReqs:["لا توجد طلبات.","No requests."],approve:["قبول","Approve"],reject:["رفض","Reject"],findUser:["ابحث بالاسم أو اسم المستخدم","Search by name or username"],search:["بحث","Search"],setRole:["حفظ الصلاحية","Save role"],
  email:["البريد","Email"],chPw:["تغيير كلمة المرور","Change password"],delAcct:["حذف الحساب نهائياً","Delete account permanently"],delAcctSure:["سيتم حذف حسابك وكل بياناتك نهائياً. متأكد؟","This permanently deletes your account and all your data. Are you sure?"],
- teamBy:["الفريق:","Team:"]};
+ teamBy:["الفريق:","Team:"],
+ chPhoto:["تغيير الصورة","Change photo"],rmPhoto:["إزالة الصورة","Remove photo"],photoHint:["تظهر الصورة بشكل دائري. JPG أو PNG أو WebP.","Shown as a circle. JPG, PNG or WebP."],photoBad:["اختر صورة JPG أو PNG أو WebP حتى 8 ميغابايت.","Choose a JPG, PNG or WebP image up to 8 MB."],
+ needSql:["لتفعيل الصورة الشخصية شغّل ملف schema.sql المحدّث في Supabase.","To enable profile photos, run the updated schema.sql in Supabase."],members:["المشتركون","Members"],
+ addComic:["إضافة كوميكس","Add a comic"],saveComic:["حفظ الكوميكس","Save comic"],keepDraft:["انشر الآن (اتركه فارغاً لحفظه كمسودة)","Publish now (leave empty to save as a draft)"],favComics:["كوميكس مفضلة","Favorite comics"],favPosts:["مواضيع مفضلة","Favorite topics"],
+ drafts:["مسودات (غير منشورة)","Drafts (not published)"],pubList:["المنشورة","Published"],noPub:["ما في كوميكس منشورة بعد.","No comics published yet."],addHint:["اضغط «إضافة كوميكس» لرفع أول كوميكس.","Press “Add a comic” to upload your first one."],
+ tFeed:["الجديد","Feed"],tFol:["المتابعات","Following"],tMsgs:["الرسائل","Messages"],follow:["متابعة","Follow"],unfollow:["إلغاء المتابعة","Unfollow"],followers:["المتابعون","Followers"],folLbl:["يتابع","Following"],iFollow:["أتابعهم","I follow"],
+ message:["مراسلة","Message"],block:["حظر","Block"],unblock:["إلغاء الحظر","Unblock"],sub:["اشتراك","Subscribe"],unsub:["إلغاء الاشتراك","Unsubscribe"],mySubs:["اشتراكاتي (الخانات)","My subscriptions (spaces)"],
+ noFol:["ما تتابع أحداً بعد.","You don’t follow anyone yet."],noFollowers:["ما عندك متابعون بعد.","No followers yet."],noSubs:["ما اشتركت في خانة بعد.","No subscriptions yet."],
+ feedEmpty:["تابع أشخاصاً أو اشترك في خانات لتظهر هنا أحدث الكوميكس والمواضيع.","Follow people or subscribe to spaces and their latest comics and topics will show here."],newTag:["جديد","New"],
+ newMsg:["رسالة جديدة","New message"],noMsgs:["لا توجد محادثات بعد. اكتب اسم مستخدم لتبدأ.","No conversations yet. Enter a username to start."],noMsgsYet:["ابدأ المحادثة بإرسال رسالة.","Start the conversation by sending a message."],
+ typeMsg:["اكتب رسالتك…","Write a message…"],send:["إرسال","Send"],you:["أنت","You"],cantMsg:["ما تقدر ترسل لهذا المستخدم.","You can’t message this user."],userNf:["المستخدم غير موجود.","User not found."],
+ comicsBy:["كوميكس نشرها","Published comics"],topicsBy:["المواضيع","Topics"],privNote:["الرسائل خاصة بين الطرفين.","Messages are private between the two of you."],blockedOk:["تم الحظر.","User blocked."],unblockedOk:["تم إلغاء الحظر.","User unblocked."],
+ defA:["باتمان","Batman"],defB:["بروس وين","Bruce Wayne"],defC:["باتمان وبروس","Batman & Bruce"],saved2:["تم حفظ الكوميكس.","Comic saved."]};
 const DATA={l:{},byId:{}};
+const nameOf0=p=>p?String(p.display_name||p.username||"?"):"?";
+function av(p,sz){sz=sz||36;const n=nameOf0(p);
+ return p&&p.avatar_path?`<span class="avc" style="--s:${sz}px"><img src="${DB.aurl(p.avatar_path)}" alt="" loading="lazy"></span>`:`<span class="avc" style="--s:${sz}px">${esc(n.charAt(0).toUpperCase())}</span>`}
+const bdgH=()=>DATA.unread>0?`<i class="bdg">${Math.min(DATA.unread,99)}</i>`:"";
+const topIcon=()=>{const u=AUTH.user();if(!u)return"";const me=DATA.me;return bdgH()+(me&&me.avatar_path?`<span class="avc" style="--s:30px"><img src="${DB.aurl(me.avatar_path)}" alt=""></span>`:`<b class="ini">${esc(((me&&nameOf0(me))||AUTH.name()).charAt(0).toUpperCase())}</b>`)};
+function updTop(){const b=document.querySelector('.ib[data-go="me"]');if(b)b.innerHTML=topIcon()}
 const uid=()=>AUTH.user()&&AUTH.user().id;
 const nameOf=p=>p?String(p.display_name||p.username||"?"):"?";
 const fmtD=d=>{try{return new Date(d).toLocaleDateString(ar()?"ar":"en-GB")}catch(e){return""}};
 const need=(k,fn)=>{if(DATA[k]===undefined&&!DATA.l[k]){DATA.l[k]=1;fn().catch(()=>{DATA[k]=null}).finally(()=>{DATA.l[k]=0;refresh()})}return DATA[k]};
-function refresh(){const p=document.querySelector(".panel");if(p&&p.isConnected&&ST.page!=="home"&&ST.page!=="login"){const y=scrollY;p.innerHTML=bodyHtml();scrollTo(0,y)}}
-function afterAuth(){["me","favs","fc","my","req","studio","reqs","users","comm_night","comm_day","forum_night","forum_day"].forEach(k=>{DATA[k]=undefined});DATA.l={};if(AUTH.on&&AUTH.user()){need("me",L.me);need("favs",L.favs)}}
+function refresh(){const p=document.querySelector(".panel");if(p&&p.isConnected&&ST.page!=="home"&&ST.page!=="login"){const y=scrollY;p.innerHTML=bodyHtml();scrollTo(0,y);const cl=document.getElementById("chatlist");if(cl)cl.scrollTop=cl.scrollHeight}}
+function afterAuth(){["me","favs","fc","fp","my","req","studio","reqs","users","members","fol","fl","feed","inbox","comm_night","comm_day","draft_night","draft_day","forum_night","forum_day"].forEach(k=>{DATA[k]=undefined});DATA.l={};if(AUTH.on&&AUTH.user()){need("me",L.me);need("favs",L.favs);need("fol",L.fol);refreshUnread()}else{DATA.unread=0}}
+const isFol=i=>!!(DATA.fol&&DATA.fol.f.includes(i)),isSub=i=>!!(DATA.fol&&DATA.fol.s.includes(i)),isBlk=i=>!!(DATA.fol&&DATA.fol.b.includes(i));
 const isAdmin=()=>!!(DATA.me&&DATA.me.role==="admin");
 const isFav=r=>Array.isArray(DATA.favs)&&DATA.favs.includes(r);
 const heart=(r,cls)=>AUTH.on?`<button type="button" class="fav${isFav(r)?" on":""}${cls?" "+cls:""}" data-fav="${r}" aria-label="${t(U.fav)}" aria-pressed="${isFav(r)}"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 3 5 6.3 5c2 0 3.7 1.1 4.7 2.7h2C14 6.1 15.7 5 17.7 5 21 5 23.1 8.2 21.6 11.7 19.5 16.4 12 21 12 21z"/></svg></button>`:"";
@@ -735,67 +794,102 @@ const errP=e=>{const c=String(e&&e.code||"");if(c==="network")return M.E.net;if(
 const say2=(id,p,c)=>{const m=document.getElementById(id);if(m){m.className="amsg "+(c||"");m.textContent=t(p)}};
 
 const L={
- me:async()=>{const r=await DB.sel("profiles",{select:"*",id:"eq."+uid()});DATA.me=r[0]||null},
+ me:async()=>{const r=await DB.sel("profiles",{select:"*",id:"eq."+uid()});DATA.me=r[0]||null;updTop()},
  favs:async()=>{const r=await DB.sel("favorites",{select:"ref",order:"created_at.desc"});DATA.favs=r.map(x=>x.ref)},
  fc:async()=>{const ids=(DATA.favs||[]).filter(r=>r[0]==="c").map(r=>r.slice(2));if(!ids.length){DATA.fc=[];return}
-  DATA.fc=await hydrate(await DB.sel("comics",{select:"*,space:spaces(id,title,side)",id:"in.("+ids.join(",")+")"}))},
+  DATA.fc=await hydrate(await DB.sel("comics",{select:"*,space:spaces(id,title,side),author:profiles(id,username,display_name"+avs()+")",id:"in.("+ids.join(",")+")"}))},
  my:async()=>{const[p,r]=await Promise.all([DB.sel("posts",{select:"id,title,side,created_at",author_id:"eq."+uid(),order:"created_at.desc"}),DB.sel("replies",{select:"id,body,created_at,post:posts(title,side)",author_id:"eq."+uid(),order:"created_at.desc"})]);DATA.my={p,r}},
  req:async()=>{const r=await DB.sel("publisher_requests",{select:"*",user_id:"eq."+uid()});DATA.req=r[0]||false},
  studio:async()=>{let sp;
   if(isAdmin())sp=(await DB.sel("spaces",{select:"*",order:"created_at.desc"})).map(x=>({...x,mine:"admin"}));
   else{const r=await DB.sel("space_members",{select:"member_role,space:spaces(*)",user_id:"eq."+uid()});sp=r.filter(x=>x.space).map(x=>({...x.space,mine:x.member_role}))}
   const ids=sp.map(s=>s.id);let mem=[],cm=[];
-  if(ids.length)[mem,cm]=await Promise.all([DB.sel("space_members",{select:"space_id,member_role,profile:profiles(id,username,display_name)",space_id:"in.("+ids.join(",")+")"}),DB.sel("comics",{select:"*",space_id:"in.("+ids.join(",")+")",order:"created_at.desc"})]);
+  if(ids.length)[mem,cm]=await Promise.all([DB.sel("space_members",{select:"space_id,member_role,profile:profiles(id,username,display_name"+avs()+")",space_id:"in.("+ids.join(",")+")"}),DB.sel("comics",{select:"*",space_id:"in.("+ids.join(",")+")",order:"created_at.desc"})]);
   sp.forEach(s=>{s.members=mem.filter(m=>m.space_id===s.id);s.comics=cm.filter(c=>c.space_id===s.id);s.comics.forEach(c=>{DATA.byId[c.id]=c})});DATA.studio=sp},
+ fol:async()=>{const[a,b,c]=await Promise.all([DB.sel("follows",{select:"followed_id",follower_id:"eq."+uid()}),DB.sel("space_subs",{select:"space_id",user_id:"eq."+uid()}),DB.sel("blocks",{select:"blocked_id",blocker_id:"eq."+uid()})]);DATA.fol={f:a.map(x=>x.followed_id),s:b.map(x=>x.space_id),b:c.map(x=>x.blocked_id)}},
+ fl:async()=>{const pf="id,username,display_name"+avs();const[a,b,c]=await Promise.all([DB.sel("follows",{select:"p:profiles!followed_id("+pf+")",follower_id:"eq."+uid(),order:"created_at.desc"}),DB.sel("follows",{select:"p:profiles!follower_id("+pf+")",followed_id:"eq."+uid(),order:"created_at.desc"}),DB.sel("space_subs",{select:"space:spaces(id,title,side)",user_id:"eq."+uid(),order:"created_at.desc"})]);
+  DATA.fl={ing:a.map(x=>x.p).filter(Boolean),ers:b.map(x=>x.p).filter(Boolean),sp:c.map(x=>x.space).filter(Boolean)}},
+ feed:async()=>{if(!DATA.fol)await L.fol();const f=DATA.fol.f,sp=DATA.fol.s,sel="*,space:spaces(id,title,side),author:profiles(id,username,display_name"+avs()+")";
+  const[a,b,c]=await Promise.all([sp.length?DB.sel("comics",{select:sel,published:"eq.true",space_id:"in.("+sp.join(",")+")",order:"created_at.desc",limit:20}):[],f.length?DB.sel("comics",{select:sel,published:"eq.true",author_id:"in.("+f.join(",")+")",order:"created_at.desc",limit:20}):[],f.length?DB.sel("posts",{select:"id,title,side,created_at,author:profiles(id,username,display_name)",author_id:"in.("+f.join(",")+")",order:"created_at.desc",limit:20}):[]]);
+  const seen=new Set(),cm=await hydrate([...a,...b].filter(x=>!seen.has(x.id)&&seen.add(x.id)));
+  DATA.feed=[...cm.map(c=>({k:"c",t:c.created_at,c})),...c.map(p=>({k:"p",t:p.created_at,p}))].sort((x,y)=>y.t.localeCompare(x.t)).slice(0,30)},
+ inbox:async()=>{const m=uid();const[a,b]=await Promise.all([DB.sel("messages",{select:"*",sender_id:"eq."+m,order:"created_at.desc",limit:150}),DB.sel("messages",{select:"*",recipient_id:"eq."+m,order:"created_at.desc",limit:150})]);
+  const all=[...a,...b].sort((x,y)=>y.created_at.localeCompare(x.created_at)),map=new Map();
+  all.forEach(x=>{const o=x.sender_id===m?x.recipient_id:x.sender_id;if(!map.has(o))map.set(o,{id:o,last:x,unread:0});if(x.recipient_id===m&&!x.read_at)map.get(o).unread++});
+  const ids=[...map.keys()];let ps=[];if(ids.length)ps=await DB.sel("profiles",{select:"id,username,display_name"+avs(),id:"in.("+ids.join(",")+")"});
+  DATA.inbox=[...map.values()].map(c=>({...c,p:ps.find(q=>q.id===c.id)||null}))},
+ members:async()=>{const[r,n]=await Promise.all([DB.sel("profiles",{select:"id,username,display_name"+avs(),order:"created_at.desc",limit:24}),DB.cnt("profiles")]);DATA.members={list:r,n}},
+ fp:async()=>{const ids=(DATA.favs||[]).filter(r=>r[0]==="p").map(r=>r.slice(2));DATA.fp=ids.length?await DB.sel("posts",{select:"id,title,side,created_at,author:profiles(username,display_name)",id:"in.("+ids.join(",")+")"}):[]},
  reqs:async()=>{DATA.reqs=await DB.sel("publisher_requests",{select:"*,profile:profiles(id,username,display_name)",status:"eq.pending",order:"created_at.asc"})}};
 async function hydrate(rows){rows=rows.filter(c=>c.space);const ids=[...new Set(rows.map(c=>c.space.id))];let mem=[];
  if(ids.length)mem=await DB.sel("space_members",{select:"space_id,profile:profiles(username,display_name)",space_id:"in.("+ids.join(",")+")"});
  rows.forEach(c=>{c.team=mem.filter(m=>m.space_id===c.space.id).map(m=>nameOf(m.profile));DATA.byId[c.id]=c});return rows}
-async function loadComm(side){const r=await DB.sel("comics",{select:"*,space:spaces(id,title,side)",published:"eq.true",order:"created_at.desc",limit:60});
+async function loadComm(side){const r=await DB.sel("comics",{select:"*,space:spaces(id,title,side),author:profiles(id,username,display_name"+avs()+")",published:"eq.true",order:"created_at.desc",limit:60});
  DATA["comm_"+side]=await hydrate(r.filter(c=>c.space&&(c.space.side==="both"||c.space.side===side)))}
-async function loadForum(side){DATA["forum_"+side]=await DB.sel("posts",{select:"*,author:profiles(username,display_name),replies(id,body,created_at,author_id,author:profiles(username,display_name))",side:"eq."+side,order:"created_at.desc","replies.order":"created_at.asc",limit:50})}
+async function loadDrafts(side){const r=await DB.sel("comics",{select:"*,space:spaces(id,title,side),author:profiles(id,username,display_name"+avs()+")",published:"eq.false",order:"created_at.desc"});
+ DATA["draft_"+side]=await hydrate(r.filter(c=>c.space&&(c.space.side==="both"||c.space.side===side)))}
+async function loadUser(id){const sel="*,space:spaces(id,title,side),author:profiles(id,username,display_name"+avs()+")";
+ const[pr,fo,fi,cm,ps]=await Promise.all([DB.sel("profiles",{select:"*",id:"eq."+id}),DB.cnt("follows","followed_id=eq."+id),DB.cnt("follows","follower_id=eq."+id),DB.sel("comics",{select:sel,author_id:"eq."+id,published:"eq.true",order:"created_at.desc",limit:12}),DB.sel("posts",{select:"id,title,side,created_at",author_id:"eq."+id,order:"created_at.desc",limit:10})]);
+ DATA["u_"+id]={p:pr[0]||null,fo,fi,cm:await hydrate(cm),ps}}
+async function loadChat(id){const m=uid();const[a,b,p]=await Promise.all([DB.sel("messages",{select:"*",sender_id:"eq."+m,recipient_id:"eq."+id,order:"created_at.asc",limit:200}),DB.sel("messages",{select:"*",sender_id:"eq."+id,recipient_id:"eq."+m,order:"created_at.asc",limit:200}),DB.sel("profiles",{select:"id,username,display_name"+avs(),id:"eq."+id})]);
+ DATA["chat_"+id]={p:p[0]||null,m:[...a,...b].sort((x,y)=>x.created_at.localeCompare(y.created_at))};
+ if(b.some(x=>!x.read_at)){try{await DB.rpc("mark_read",{other:id})}catch(e){}refreshUnread()}}
+async function refreshUnread(){if(!AUTH.user())return;const n=await DB.cnt("messages","recipient_id=eq."+uid()+"&read_at=is.null");
+ if(n!=null){DATA.unread=n;updTop();const b=document.querySelector('.mt[data-arg="msgs"]');if(b)b.textContent=t(U.tMsgs)+(n>0?" ("+n+")":"")}}
+async function loadForum(side){DATA["forum_"+side]=await DB.sel("posts",{select:`*,author:profiles(username,display_name${avs()}),replies(id,body,created_at,author_id,author:profiles(username,display_name${avs()}))`,side:"eq."+side,order:"created_at.desc","replies.order":"created_at.asc",limit:50})}
 function itemsOf(mode){const d=C[mode],map={};["p1","p2","p3","p4"].forEach(pk=>{d[pk].secs.forEach((sc,si)=>{
  if(sc.t==="cards")sc.c.forEach((c,i)=>{const id=c[2]||`${mode}_${pk}_${si}_${i}`;map[id]={id,n:c[0],s:c[1],img:c[2]&&IMG[c[2]]?c[2]:null,mode}});
  if(sc.t==="people")sc.c.forEach(p=>{map[p.k]={id:p.k,n:p.n,s:p.r,img:p.k,mode}})})});return map}
 
+const canEdit=c=>!!(AUTH.user()&&(isAdmin()||c.author_id===uid()));
 function commCard(c){const team=(c.team||[]).map(esc).join(ar()?"، ":", ");
- return `<article class="cmc ucm">${heart("c:"+c.id)}<div class="cov img">${c.cover_path?`<img src="${DB.url(c.cover_path)}" alt="" loading="lazy">`:`<b>${esc(c.title)}</b>`}</div><div class="cb"><h3>${esc(c.title)}</h3><small>${esc(c.space&&c.space.title||"")}${team?" · "+t(U.teamBy)+" "+team:""}</small><p>${esc(c.description)}</p>${c.pages&&c.pages.length?`<button type="button" class="btn rdb" data-act="read" data-arg="${c.id}">${t(U.read)}</button>`:""}</div></article>`}
-function commHtml(){if(!AUTH.on)return"";const side=ST.mode,list=need("comm_"+side,()=>loadComm(side));
- const inner=list===undefined?`<p class="fnote">${t(U.loading)}</p>`:list===null?`<p class="fnote">${t(U.loadErr)}</p>`:!list.length?`<p class="fnote">${t(U.noComm)}</p>`:`<div class="cgrid">${list.map(commCard).join("")}</div>`;
- return `<div class="sec"><h3>${t(U.community)}</h3>${inner}</div>`}
+ return `<article class="cmc ucm">${c.published?heart("c:"+c.id):""}<div class="cov img">${c.cover_path?`<img src="${DB.url(c.cover_path)}" alt="" loading="lazy">`:`<b>${esc(c.title)}</b>`}</div><div class="cb"><h3>${esc(c.title)}</h3>${c.published?"":`<span class="badge">${t(U.draft)}</span> `}<small>${esc(c.space&&c.space.title||"")}${team?" · "+t(U.teamBy)+" "+team:""}</small>
+<div class="cby">${c.author?`<button type="button" class="pl" data-user="${c.author.id}">${av(c.author,22)}<b>${esc(nameOf(c.author))}</b></button>`:""}${AUTH.on&&c.space?`<button type="button" class="lnk" data-act="sub" data-arg="${c.space.id}">${isSub(c.space.id)?t(U.unsub):t(U.sub)}</button>`:""}</div><p>${esc(c.description)}</p>
+<div class="cmgr">${c.pages&&c.pages.length?`<button type="button" class="btn rdb" data-act="read" data-arg="${c.id}">${t(U.read)}</button>`:""}${canEdit(c)?`<button type="button" class="lnk" data-act="pubtoggle" data-arg="${c.id}:${c.published?0:1}">${t(c.published?U.unpub:U.pub)}</button><button type="button" class="lnk danger" data-act="delcomic" data-arg="${c.id}">${t(U.del)}</button>`:""}</div></div></article>`}
+function pubPanel(side){
+ const o=(v,l)=>`<option value="${v}"${v===side?" selected":""}>${t(l)}</option>`;
+ return `<details class="newc pubp"${ST.pubOpen?" open":""}><summary>＋ ${t(U.addComic)}</summary><div class="mf">
+<label class="lf"><small>${t(U.spSide)}</small><select id="pc_s">${o("night",U.sideN)}${o("day",U.sideD)}${o("both",U.sideB)}</select></label>
+<label class="lf"><small>${t(U.cTitle)}</small><input id="pc_t" maxlength="100"></label><label class="lf"><small>${t(U.cDesc)}</small><textarea id="pc_d" rows="2" maxlength="1000"></textarea></label>
+<label class="lf fl2"><small>${t(U.cCover)}</small><input id="pc_c" type="file" accept="image/jpeg,image/png,image/webp"></label><label class="lf fl2"><small>${t(U.cPages)}</small><input id="pc_p" type="file" accept="image/jpeg,image/png,image/webp" multiple></label>
+<label class="chk"><input id="pc_u" type="checkbox"> ${t(U.keepDraft)}</label><button type="button" class="lbtn" data-act="pubcomic">${t(U.saveComic)}</button><div class="amsg" id="pc_m" role="status"></div></div></details>`}
+function commHtml(){if(!AUTH.on)return `<p class="fnote">${t(U.noComm)}</p>`;
+ const side=ST.mode,list=need("comm_"+side,()=>loadComm(side)),canPub=!!(AUTH.user()&&DATA.me&&DATA.me.role!=="member"),drafts=canPub?need("draft_"+side,()=>loadDrafts(side)):[];
+ const grid=a=>a===undefined?`<p class="fnote">${t(U.loading)}</p>`:a===null?`<p class="fnote">${t(U.loadErr)}</p>`:`<div class="cgrid">${a.map(commCard).join("")}</div>`;
+ const hasD=Array.isArray(drafts)&&drafts.length;
+ return `<div class="sec">${canPub?pubPanel(side):""}${hasD?`<h3>${t(U.drafts)}</h3>${grid(drafts)}`:""}<h3>${t(U.pubList)}</h3>${Array.isArray(list)&&!list.length?`<p class="fnote">${t(U.noPub)}${canPub?" "+t(U.addHint):""}</p>`:grid(list)}</div>`}
 
+function memHtml(){const m=need("members",L.members);if(!m)return"";
+ return `<div class="mbrs"><h3 class="mh">${t(U.members)}${m.n!=null?" ("+m.n+")":""}</h3><div class="mbrl">${m.list.map(p=>`<button type="button" class="mb" data-user="${p.id}" title="${esc(nameOf(p))}">${av(p,46)}<small>${esc(nameOf(p))}</small></button>`).join("")}</div></div>`}
 function forumDb(){const side=ST.mode,F=need("forum_"+side,()=>loadForum(side)),me=AUTH.user(),adm=isAdmin();
  const comp=me?`<div class="fnew"><input id="fn_t" maxlength="120" placeholder="${ar()?"عنوان الموضوع":"Topic title"}"><textarea id="fn_b" rows="3" maxlength="2000" placeholder="${ar()?"اكتب رسالتك…":"Write your message…"}"></textarea><button type="button" class="btn fbtn" data-act="topic">${ar()?"انشر الموضوع":"Post topic"}</button></div>`:`<div class="fnew"><p>${t(U.loginToPost)}</p><button type="button" class="btn fbtn" data-go="login">${t(LL.login)}</button></div>`;
  const list=F===undefined?`<p class="fnote">${t(U.loading)}</p>`:F===null?`<p class="fnote">${t(U.loadErr)}</p>`:F.map(th=>{const au=nameOf(th.author),own=me&&th.author_id===me.id;
-  return `<details class="th"${ST.openT===th.id?" open":""}><summary><span class="av">${esc(au.charAt(0).toUpperCase())}</span><span class="tt"><b>${esc(th.title)}</b><small>${esc(au)} · ${fmtD(th.created_at)}</small></span><span class="rc">${(th.replies||[]).length}</span></summary><div class="tb"><p>${esc(th.body)}</p>${own||adm?`<button type="button" class="lnk danger" data-act="delpost" data-arg="${th.id}">${t(U.del)}</button>`:""}
-${(th.replies||[]).map(r=>`<div class="rp"><b>${esc(nameOf(r.author))}</b> <small>${fmtD(r.created_at)}</small><p>${esc(r.body)}</p>${(me&&r.author_id===me.id)||adm?`<button type="button" class="lnk danger" data-act="delrep" data-arg="${r.id}">${t(U.del)}</button>`:""}</div>`).join("")}
+  return `<details class="th"${ST.openT===th.id?" open":""}><summary>${av(th.author,42)}<span class="tt"><b>${esc(th.title)}</b><small>${esc(au)} · ${fmtD(th.created_at)}</small></span><span class="rc">${(th.replies||[]).length}</span></summary><div class="tb"><button type="button" class="pl" data-user="${th.author_id}">${av(th.author,26)}<b>${esc(au)}</b></button><p>${esc(th.body)}</p><div class="tact">${heart("p:"+th.id,"inl")}${own||adm?`<button type="button" class="lnk danger" data-act="delpost" data-arg="${th.id}">${t(U.del)}</button>`:""}</div>
+${(th.replies||[]).map(r=>`<div class="rp"><div class="rph"><button type="button" class="pl" data-user="${r.author_id}">${av(r.author,28)}<b>${esc(nameOf(r.author))}</b></button> <small>${fmtD(r.created_at)}</small></div><p>${esc(r.body)}</p>${(me&&r.author_id===me.id)||adm?`<button type="button" class="lnk danger" data-act="delrep" data-arg="${r.id}">${t(U.del)}</button>`:""}</div>`).join("")}
 ${me?`<div class="rf"><input id="rp_${th.id}" maxlength="1000" placeholder="${ar()?"اكتب ردك…":"Write a reply…"}"><button type="button" class="btn" data-act="reply" data-arg="${th.id}">${ar()?"رد":"Reply"}</button></div>`:""}</div></details>`}).join("");
- return comp+`<div class="fl">${list}</div>`}
+ return memHtml()+comp+`<div class="fl">${list}</div>`}
 
 /* ----- account page ----- */
 function meHtml(d){
  if(!AUTH.user())return `<div class="ph"><h2>${t(U.me)}</h2><p>${t(U.needLogin)}</p></div><button type="button" class="lbtn" data-go="login">${t(LL.login)}</button>`;
  const me=need("me",L.me),role=(me&&me.role)||"member",tab=ST.tab||"profile";
- const tabs=[["profile",U.tProfile],["favs",U.tFavs],["posts",U.tPosts],["studio",U.tStudio]].concat(role==="admin"?[["admin",U.tAdmin]]:[]).concat([["settings",U.tSet]]);
- const body={profile:tProfile,favs:tFavs,posts:tPosts,studio:tStudio,admin:tAdmin,settings:tSet}[tab]||tProfile;
- return `<div class="ph"><h2>${esc(me?nameOf(me):AUTH.name())}</h2><p>${t(U["r_"+role])} · ${esc(AUTH.user().email||"")}</p></div>
-<div class="mtabs" role="tablist">${tabs.map(([k,l])=>`<button type="button" class="mt${k===tab?" on":""}" role="tab" aria-selected="${k===tab}" data-act="tab" data-arg="${k}">${t(l)}</button>`).join("")}</div><div class="mbody">${body(me,role)}</div>`}
+ const tabs=[["profile",U.tProfile],["feed",U.tFeed],["favs",U.tFavs],["posts",U.tPosts],["fol",U.tFol],["msgs",U.tMsgs],["studio",U.tStudio]].concat(role==="admin"?[["admin",U.tAdmin]]:[]).concat([["settings",U.tSet]]);
+ const body={profile:tProfile,feed:tFeed,favs:tFavs,posts:tPosts,fol:tFol,msgs:tMsgs,studio:tStudio,admin:tAdmin,settings:tSet}[tab]||tProfile;
+ return `<div class="ph"><div class="meh">${av(me||{display_name:AUTH.name()},76)}<div><h2>${esc(me?nameOf(me):AUTH.name())}</h2><p>${t(U["r_"+role])} · ${esc(AUTH.user().email||"")}</p></div></div></div>
+<div class="mtabs" role="tablist">${tabs.map(([k,l])=>`<button type="button" class="mt${k===tab?" on":""}" role="tab" aria-selected="${k===tab}" data-act="tab" data-arg="${k}">${t(l)}${k==="msgs"&&DATA.unread>0?" ("+DATA.unread+")":""}</button>`).join("")}</div><div class="mbody">${body(me,role)}</div>`}
 const stt=(v)=>v===undefined?`<p class="fnote">${t(U.loading)}</p>`:v===null?`<p class="fnote">${t(U.loadErr)}</p>`:null;
 function tProfile(me){const s=stt(me);if(s)return s;
- return `<div class="mf"><label class="lf"><small>${t(U.dname)}</small><input id="p_dn" maxlength="50" value="${esc(me.display_name)}"></label>
+ const ph=AV?`<div class="avedit">${av(me,96)}<div><label class="btn avbtn">${t(U.chPhoto)}<input id="av_f" type="file" accept="image/jpeg,image/png,image/webp" hidden></label>${me.avatar_path?`<button type="button" class="lnk danger" data-act="avrm">${t(U.rmPhoto)}</button>`:""}<small class="fnote">${t(U.photoHint)}</small><div class="amsg" id="avmsg" role="status"></div></div></div>`:`<p class="fnote">${t(U.needSql)}</p>`;
+ return `<div class="mf">${ph}<label class="lf"><small>${t(U.dname)}</small><input id="p_dn" maxlength="50" value="${esc(me.display_name)}"></label>
 <label class="lf"><small>${t(U.uname)}</small><input id="p_un" maxlength="20" value="${esc(me.username)}" autocapitalize="off" autocomplete="off" dir="ltr"></label>
 <label class="lf"><small>${t(U.bio)}</small><textarea id="p_bio" rows="3" maxlength="300">${esc(me.bio)}</textarea></label>
 <button type="button" class="lbtn" data-act="saveprofile">${t(U.save)}</button><div class="amsg" id="pmsg" role="status"></div></div>`}
-function favCard(r){
- if(r.startsWith("i:")){const id=r.slice(2),it=itemsOf("night")[id]||itemsOf("day")[id];if(!it)return"";
-  return `<figure class="pc fvc" data-fitem="${esc(id)}" data-fmode="${it.mode}" tabindex="0" role="button">${heart(r)}${it.img&&IMG[it.img]?fr(it.img,t(it.n)):`<div class="fr"></div>`}<figcaption><b>${t(it.n)}</b><small>${t(it.mode==="night"?U.sideN:U.sideD)}</small></figcaption></figure>`}
- if(r.startsWith("k:")){const[,m,i]=r.split(":"),c=C[m]&&C[m].p5.secs[0].c[+i];if(!c)return"";
-  return `<article class="cmc">${heart(r)}<div class="cov"><span class="cy">${c[2]}</span><b>${t(c[0])}</b><i>✦</i></div><div class="cb"><h3>${t(c[0])}</h3><small>${t(c[3])}</small><p>${t(c[1])}</p></div></article>`}
- if(r.startsWith("c:")){const c=(DATA.fc||[]).find(x=>x.id===r.slice(2));return c?commCard(c):""}
- return""}
-function tFavs(){const f=need("favs",L.favs),s=stt(f);if(s)return s;if(!f.length)return `<p class="fnote">${t(U.favEmpty)}</p>`;
- if(f.some(r=>r[0]==="c")){const fc=need("fc",L.fc);if(fc===undefined)return `<p class="fnote">${t(U.loading)}</p>`}
- return `<div class="fgrid">${f.map(favCard).join("")}</div>`}
+function tFavs(){const f0=need("favs",L.favs),s=stt(f0);if(s)return s;
+ const f=f0.filter(r=>r[0]==="c"||r[0]==="p");if(!f.length)return `<p class="fnote">${t(U.favEmpty)}</p>`;
+ const cs=f.filter(r=>r[0]==="c"),ps=f.filter(r=>r[0]==="p");let out="";
+ if(cs.length){const fc=need("fc",L.fc);out+=`<h3 class="mh">${t(U.favComics)}</h3>`+(fc===undefined?`<p class="fnote">${t(U.loading)}</p>`:fc===null?`<p class="fnote">${t(U.loadErr)}</p>`:`<div class="fgrid">${cs.map(r=>{const c=fc.find(x=>x.id===r.slice(2));return c?commCard(c):""}).join("")}</div>`)}
+ if(ps.length){const fp=need("fp",L.fp);out+=`<h3 class="mh">${t(U.favPosts)}</h3>`+(fp===undefined?`<p class="fnote">${t(U.loading)}</p>`:fp===null?`<p class="fnote">${t(U.loadErr)}</p>`:fp.map(p=>`<div class="mrow fpr" data-fpost="${p.id}" data-fmode="${p.side}" role="button" tabindex="0"><div><b>${esc(p.title)}</b><small>${t(p.side==="night"?U.sideN:U.sideD)} · ${esc(nameOf(p.author))} · ${fmtD(p.created_at)}</small></div>${heart("p:"+p.id,"inl")}</div>`).join(""))}
+ return out}
 function tPosts(){const m=need("my",L.my),s=stt(m);if(s)return s;
  const sd=x=>t(x==="night"?U.sideN:U.sideD);
  return `<h3 class="mh">${t(U.postsT)}</h3>${m.p.length?m.p.map(p=>`<div class="mrow"><div><b>${esc(p.title)}</b><small>${sd(p.side)} · ${fmtD(p.created_at)}</small></div><button type="button" class="lnk danger" data-act="delpost" data-arg="${p.id}">${t(U.del)}</button></div>`).join(""):`<p class="fnote">${t(U.noPosts)}</p>`}
@@ -811,7 +905,7 @@ function tStudio(me,role){
 <label class="lf"><small>${t(U.spSide)}</small><select id="sp_s"><option value="both">${t(U.sideB)}</option><option value="night">${t(U.sideN)}</option><option value="day">${t(U.sideD)}</option></select></label><button type="button" class="lbtn" data-act="newspace">${t(U.create2)}</button><div class="amsg" id="spmsg" role="status"></div></div></details>`:"";
  const list=sp.length?sp.map(s=>{const own=s.mine==="owner"||isAdmin();
   return `<article class="spc"><header><h3>${esc(s.title)}</h3><span class="badge">${sideL(s.side)}</span></header>${s.description?`<p>${esc(s.description)}</p>`:""}
-<div class="team"><small>${t(U.team)}</small>${(s.members||[]).map(m=>`<span class="tm">${esc(nameOf(m.profile))}${m.member_role==="owner"?" ★":""}${own&&m.member_role!=="owner"?`<button type="button" aria-label="${t(U.del)}" data-act="rmm" data-arg="${s.id}:${m.profile.id}">×</button>`:""}</span>`).join("")}</div>
+<div class="team"><small>${t(U.team)}</small>${(s.members||[]).map(m=>`<span class="tm" data-user="${m.profile.id}">${esc(nameOf(m.profile))}${m.member_role==="owner"?" ★":""}${own&&m.member_role!=="owner"?`<button type="button" aria-label="${t(U.del)}" data-act="rmm" data-arg="${s.id}:${m.profile.id}">×</button>`:""}</span>`).join("")}</div>
 ${own?`<div class="addm"><input id="am_${s.id}" placeholder="${t(U.mUser)}" dir="ltr" autocapitalize="off"><button type="button" class="btn" data-act="addm" data-arg="${s.id}">${t(U.addMember)}</button></div>`:""}
 <div class="cl">${(s.comics||[]).map(c=>`<div class="mrow"><div class="cth">${c.cover_path?`<img src="${DB.url(c.cover_path)}" alt="">`:""}<span><b>${esc(c.title)}</b><small>${t(c.published?U.live:U.draft)} · ${(c.pages||[]).length}</small></span></div><span class="acts"><button type="button" class="lnk" data-act="pubtoggle" data-arg="${c.id}:${c.published?0:1}">${t(c.published?U.unpub:U.pub)}</button><button type="button" class="lnk danger" data-act="delcomic" data-arg="${c.id}">${t(U.del)}</button></span></div>`).join("")}</div>
 <details class="newc"><summary>${t(U.newComic)}</summary><div class="mf"><label class="lf"><small>${t(U.cTitle)}</small><input id="nc_t_${s.id}" maxlength="100"></label><label class="lf"><small>${t(U.cDesc)}</small><textarea id="nc_d_${s.id}" rows="2" maxlength="1000"></textarea></label>
@@ -828,6 +922,34 @@ function tSet(){return `<div class="mf"><p><b>${t(U.email)}:</b> <span dir="ltr"
 <h3 class="mh">${t(U.chPw)}</h3><label class="lf"><small>${t(LL.newpass)}</small><input id="s_pw" type="password" autocomplete="new-password"></label><button type="button" class="lbtn" data-act="changepw">${t(U.save)}</button><div class="amsg" id="smsg" role="status"></div>
 <p class="gap"><button type="button" class="lbtn alt" data-logout>${t(LL.out)}</button></p><p><button type="button" class="lnk danger" data-act="delacct">${t(U.delAcct)}</button></p></div>`}
 
+function tFeed(){const f=need("feed",L.feed),s0=stt(f);if(s0)return s0;let seen="";try{seen=localStorage.getItem("wa_feed_seen")||""}catch(e){}
+ const out=!f.length?`<p class="fnote">${t(U.feedEmpty)}</p>`:f.map(it=>{const nw=!!seen&&it.t>seen;
+  return it.k==="c"?`<div class="fitem${nw?" new":""}">${nw?`<span class="badge">${t(U.newTag)}</span>`:""}${commCard(it.c)}</div>`:`<div class="mrow fpr${nw?" new":""}" data-fpost="${it.p.id}" data-fmode="${it.p.side}" role="button" tabindex="0"><div><b>${esc(it.p.title)}</b><small>${esc(nameOf(it.p.author))} · ${t(it.p.side==="night"?U.sideN:U.sideD)} · ${fmtD(it.p.created_at)}</small></div>${nw?`<span class="badge">${t(U.newTag)}</span>`:""}</div>`}).join("");
+ setTimeout(()=>{try{if(f[0])localStorage.setItem("wa_feed_seen",f[0].t)}catch(e){}},1500);return out}
+function tFol(){const x=need("fl",L.fl),s0=stt(x);if(s0)return s0;
+ const pr=p=>`<div class="mrow"><button type="button" class="pl" data-user="${p.id}">${av(p,40)}<span><b>${esc(nameOf(p))}</b><small>@${esc(p.username||"")}</small></span></button>${p.id!==uid()?`<button type="button" class="btn" data-act="follow" data-arg="${p.id}">${t(isFol(p.id)?U.unfollow:U.follow)}</button>`:""}</div>`;
+ return `<h3 class="mh">${t(U.iFollow)} (${x.ing.length})</h3>${x.ing.length?x.ing.map(pr).join(""):`<p class="fnote">${t(U.noFol)}</p>`}
+<h3 class="mh">${t(U.followers)} (${x.ers.length})</h3>${x.ers.length?x.ers.map(pr).join(""):`<p class="fnote">${t(U.noFollowers)}</p>`}
+<h3 class="mh">${t(U.mySubs)}</h3>${x.sp.length?x.sp.map(sp=>`<div class="mrow"><div><b>${esc(sp.title)}</b><small>${t(sp.side==="night"?U.sideN:sp.side==="day"?U.sideD:U.sideB)}</small></div><button type="button" class="btn" data-act="sub" data-arg="${sp.id}">${t(U.unsub)}</button></div>`).join(""):`<p class="fnote">${t(U.noSubs)}</p>`}`}
+function msgList(m){return m.length?m.map(x=>`<div class="bub ${x.sender_id===uid()?"me":"oth"}"><p>${esc(x.body)}</p><small>${new Date(x.created_at).toLocaleTimeString(ar()?"ar":"en-GB",{hour:"2-digit",minute:"2-digit"})}</small></div>`).join(""):`<p class="fnote">${t(U.noMsgsYet)}</p>`}
+function chatView(id){const c=need("chat_"+id,()=>loadChat(id)),s0=stt(c),hd=`<div class="chath"><button type="button" class="back" data-act="chatback">${ar()?"رجوع ←":"← Back"}</button>`;
+ if(s0)return hd+"</div>"+s0;
+ return `${hd}<button type="button" class="pl" data-user="${id}">${av(c.p,40)}<b>${esc(nameOf(c.p))}</b></button><button type="button" class="lnk danger" data-act="block" data-arg="${id}">${t(isBlk(id)?U.unblock:U.block)}</button></div>
+<div class="chat" id="chatlist">${msgList(c.m)}</div><div class="rf chatin"><input id="chat_in" maxlength="2000" placeholder="${t(U.typeMsg)}" autocomplete="off"><button type="button" class="btn" data-act="send" data-arg="${id}">${t(U.send)}</button></div><p class="fnote">${t(U.privNote)}</p>`}
+function tMsgs(){if(ST.chat)return chatView(ST.chat);
+ const ib=need("inbox",L.inbox),s0=stt(ib);if(s0)return s0;
+ const start=`<div class="addm"><input id="nm_u" placeholder="${t(U.mUser)}" dir="ltr" autocapitalize="off"><button type="button" class="btn" data-act="startchat">${t(U.newMsg)}</button></div>`;
+ return start+(ib.length?ib.map(c=>`<div class="mrow cv${c.unread?" unr":""}" data-act="chat" data-arg="${c.id}" role="button" tabindex="0"><div class="cvl">${av(c.p,44)}<div><b>${esc(nameOf(c.p))}</b><small>${esc((c.last.sender_id===uid()?t(U.you)+": ":"")+String(c.last.body).slice(0,60))}</small></div></div>${c.unread?`<i class="bdg in">${c.unread}</i>`:""}</div>`).join(""):`<p class="fnote">${t(U.noMsgs)}</p>`)}
+function userHtml(d){const id=ST.uid,u=need("u_"+id,()=>loadUser(id));
+ const back=`<button type="button" class="back" data-go="${ST.userBack||"home"}">${ar()?"رجوع ←":"← Back"}</button>`;
+ if(u===undefined)return back+`<p class="fnote">${t(U.loading)}</p>`;
+ if(!u||!u.p)return back+`<p class="fnote">${t(U.userNf)}</p>`;
+ const p=u.p,mine=uid()===p.id,acts=mine?`<button type="button" class="btn" data-go="me">${t(U.tProfile)}</button>`:`<button type="button" class="btn fbtn" data-act="follow" data-arg="${p.id}">${t(isFol(p.id)?U.unfollow:U.follow)}</button><button type="button" class="btn" data-act="chat" data-arg="${p.id}">${t(U.message)}</button><button type="button" class="lnk danger" data-act="block" data-arg="${p.id}">${t(isBlk(p.id)?U.unblock:U.block)}</button>`;
+ return `${back}<div class="ph"><div class="meh uh">${av(p,96)}<div><h2>${esc(nameOf(p))}</h2><p>@${esc(p.username||"")} · ${t(U["r_"+(p.role||"member")])}</p>${p.bio?`<p class="ubio">${esc(p.bio)}</p>`:""}</div></div></div>
+<div class="cnts"><span><b>${u.fo==null?0:u.fo}</b> ${t(U.followers)}</span><span><b>${u.fi==null?0:u.fi}</b> ${t(U.folLbl)}</span></div><div class="uact">${acts}</div>
+${u.cm.length?`<h3 class="mh">${t(U.comicsBy)}</h3><div class="cgrid">${u.cm.map(commCard).join("")}</div>`:""}
+${u.ps.length?`<h3 class="mh">${t(U.topicsBy)}</h3>${u.ps.map(r=>`<div class="mrow fpr" data-fpost="${r.id}" data-fmode="${r.side}" role="button" tabindex="0"><div><b>${esc(r.title)}</b><small>${t(r.side==="night"?U.sideN:U.sideD)} · ${fmtD(r.created_at)}</small></div></div>`).join("")}`:""}`}
+function openUser(id){ST.userBack=ST.page==="user"?ST.userBack:ST.page;ST.uid=id;ST.page="user";render();scrollTo(0,0)}
 /* ----- reader ----- */
 function openReader(c){closeReader();const o=document.createElement("div");o.className="reader";o.id="reader";
  o.innerHTML=`<div class="rbar"><b>${esc(c.title)}</b><button type="button" data-act="rclose" aria-label="×">×</button></div><div class="rpg">${(c.pages||[]).map(p=>`<img src="${DB.url(p)}" alt="" loading="lazy">`).join("")}</div>`;
@@ -837,9 +959,45 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape")closeReader()});
 
 /* ----- actions ----- */
 const reset=(...k)=>{k.forEach(x=>{DATA[x]=undefined})};
-const bump=()=>reset("comm_night","comm_day");
+const bump=()=>reset("comm_night","comm_day","draft_night","draft_day");
+const mimeExt=x=>({"image/jpeg":"jpg","image/png":"png","image/webp":"webp"})[x.type];
+const chkComic=(ti,cv,pg)=>!ti?M.E.empty:(!cv||!mimeExt(cv)||cv.size>5242880||pg.length>90||pg.some(f=>!mimeExt(f)||f.size>5242880))?U.fileBad:null;
+async function spaceFor(side){const r=await DB.sel("space_members",{select:"member_role,space:spaces(*)",user_id:"eq."+uid()});
+ const m=r.find(x=>x.space&&x.space.side===side&&x.member_role==="owner");if(m)return m.space;
+ const nm=t(side==="night"?U.defA:side==="day"?U.defB:U.defC),n=await DB.ins("spaces",{owner_id:uid(),title:nm,description:"",side});return n[0]}
+async function saveComic(sid,ti,desc,cv,pg,pub,msg){
+ const bad=chkComic(ti,cv,pg);if(bad)return say2(msg,bad,"err");
+ const id=crypto.randomUUID(),base=sid+"/"+id+"/",paths=[];
+ try{say2(msg,U.uploading);const cp=base+"cover."+mimeExt(cv);await DB.up(cp,cv);paths.push(cp);
+  const pp=[];for(let i=0;i<pg.length;i++){const p=base+"p"+String(i+1).padStart(3,"0")+"."+mimeExt(pg[i]);await DB.up(p,pg[i]);paths.push(p);pp.push(p)}
+  await DB.ins("comics",{id,space_id:sid,author_id:uid(),title:ti,description:desc,cover_path:cp,pages:pp,published:!!pub});
+  reset("studio","fc");bump();ST.pubOpen=false;refresh();toast(U.saved2)}
+ catch(e){DB.rm(paths);say2(msg,errP(e),"err")}}
+function cropSquare(file,n){return new Promise((ok,no)=>{const u=URL.createObjectURL(file),im=new Image();
+ im.onload=()=>{const q=Math.min(im.width,im.height),c=document.createElement("canvas");c.width=c.height=n;c.getContext("2d").drawImage(im,(im.width-q)/2,(im.height-q)/2,q,q,0,0,n,n);URL.revokeObjectURL(u);c.toBlob(b=>b?ok(b):no(new Error("blob")),"image/jpeg",.9)};
+ im.onerror=()=>no(new Error("img"));im.src=u})}
+document.addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey&&e.target&&e.target.id==="chat_in"){e.preventDefault();ACT.send(ST.chat)}});
+setInterval(()=>{if(!AUTH.on||!AUTH.user()||document.hidden)return;refreshUnread();
+ if(ST.page==="me"&&ST.tab==="msgs"&&ST.chat){const id=ST.chat;loadChat(id).then(()=>{const l=document.getElementById("chatlist");if(l&&ST.chat===id){const end=l.scrollHeight-l.scrollTop-l.clientHeight<60;l.innerHTML=msgList(DATA["chat_"+id].m);if(end)l.scrollTop=l.scrollHeight}}).catch(()=>{})}
+ else if(ST.page==="me"&&ST.tab==="msgs"){L.inbox().then(()=>{const ni=document.getElementById("nm_u");if(!ni||!ni.value)refresh()}).catch(()=>{})}},8000);
+document.addEventListener("change",e=>{if(e.target&&e.target.id==="av_f")Promise.resolve().then(()=>ACT.avup(e.target)).catch(x=>say2("avmsg",errP(x),"err"))});
+const needAuth=()=>{if(AUTH.user())return false;toast(U.needLogin);navTo("login");return true};
 const ACT={
- tab:a=>{ST.tab=a;refresh()},
+ tab:a=>{ST.tab=a;if(a!=="msgs")ST.chat=null;refresh()},
+ async follow(a){if(needAuth()||a===uid())return;if(!DATA.fol)await L.fol();const on=isFol(a);
+  if(on){await DB.del("follows",{follower_id:"eq."+uid(),followed_id:"eq."+a});DATA.fol.f=DATA.fol.f.filter(x=>x!==a)}else{await DB.ins("follows",{follower_id:uid(),followed_id:a});DATA.fol.f.push(a)}
+  const u=DATA["u_"+a];if(u&&u.fo!=null)u.fo+=on?-1:1;reset("fl","feed");refresh()},
+ async sub(a){if(needAuth())return;if(!DATA.fol)await L.fol();const on=isSub(a);
+  if(on){await DB.del("space_subs",{user_id:"eq."+uid(),space_id:"eq."+a});DATA.fol.s=DATA.fol.s.filter(x=>x!==a)}else{await DB.ins("space_subs",{user_id:uid(),space_id:a});DATA.fol.s.push(a)}
+  reset("fl","feed");refresh()},
+ async block(a){if(needAuth()||a===uid())return;if(!DATA.fol)await L.fol();const on=isBlk(a);
+  if(on){await DB.del("blocks",{blocker_id:"eq."+uid(),blocked_id:"eq."+a});DATA.fol.b=DATA.fol.b.filter(x=>x!==a);toast(U.unblockedOk)}else{if(!confirm(t(U.sure)))return;await DB.ins("blocks",{blocker_id:uid(),blocked_id:a});DATA.fol.b.push(a);toast(U.blockedOk)}refresh()},
+ chat(a){if(needAuth()||a===uid())return;ST.page="me";ST.tab="msgs";ST.chat=a;reset("chat_"+a,"inbox");render();scrollTo(0,0)},
+ chatback(){ST.chat=null;reset("inbox");refresh()},
+ async startchat(){const un=$("#nm_u").value.trim().toLowerCase().replace(/^@/,"");if(!un)return;const r=await DB.sel("profiles",{select:"id",username:"eq."+un});if(!r.length)return toast(U.notFound);if(r[0].id===uid())return;ACT.chat(r[0].id)},
+ async send(a){const el=$("#chat_in"),v=el&&el.value.trim();if(!v)return;el.value="";
+  try{const r=await DB.ins("messages",{sender_id:uid(),recipient_id:a,body:v}),c=DATA["chat_"+a];if(c){c.m.push(r[0]);const l=$("#chatlist");if(l){l.innerHTML=msgList(c.m);l.scrollTop=l.scrollHeight}}reset("inbox")}
+  catch(e){el.value=v;toast(e.status===403||e.code==="42501"?U.cantMsg:errP(e))}},
  read:a=>{const c=DATA.byId[a];if(c)openReader(c)},
  rclose:()=>closeReader(),
  async topic(){const ti=$("#fn_t").value.trim(),b=$("#fn_b").value.trim();if(!ti||!b)return toast(M.E.empty);
@@ -858,36 +1016,36 @@ const ACT={
   const r=await DB.sel("profiles",{select:"id",username:"eq."+un});if(!r.length)return toast(U.notFound);
   try{await DB.ins("space_members",{space_id:a,user_id:r[0].id,member_role:"editor"});reset("studio");refresh()}catch(e){toast(e.status===409?U.already:errP(e))}},
  async rmm(a){const[s,u]=a.split(":");await DB.del("space_members",{space_id:"eq."+s,user_id:"eq."+u});reset("studio");refresh()},
- async newcomic(a){
-  const ti=$("#nc_t_"+a).value.trim(),cv=$("#nc_c_"+a).files[0],pg=[...$("#nc_p_"+a).files],mm=x=>({"image/jpeg":"jpg","image/png":"png","image/webp":"webp"})[x.type];
-  if(!ti)return say2("nc_m_"+a,M.E.empty,"err");
-  if(!cv||!mm(cv)||cv.size>5242880||pg.length>90||pg.some(f=>!mm(f)||f.size>5242880))return say2("nc_m_"+a,U.fileBad,"err");
-  const id=crypto.randomUUID(),base=a+"/"+id+"/",paths=[];
-  try{say2("nc_m_"+a,U.uploading);
-   await DB.up(base+"cover."+mm(cv),cv);paths.push(base+"cover."+mm(cv));
-   const pp=[];for(let i=0;i<pg.length;i++){const p=base+"p"+String(i+1).padStart(3,"0")+"."+mm(pg[i]);await DB.up(p,pg[i]);paths.push(p);pp.push(p)}
-   await DB.ins("comics",{id,space_id:a,author_id:uid(),title:ti,description:$("#nc_d_"+a).value.trim(),cover_path:base+"cover."+mm(cv),pages:pp,published:$("#nc_u_"+a).checked});
-   reset("studio");bump();refresh();toast(U.published)}
-  catch(e){DB.rm(paths);say2("nc_m_"+a,errP(e),"err")}},
+ async newcomic(a){await saveComic(a,$("#nc_t_"+a).value.trim(),$("#nc_d_"+a).value.trim(),$("#nc_c_"+a).files[0],[...$("#nc_p_"+a).files],$("#nc_u_"+a).checked,"nc_m_"+a)},
+ async pubcomic(){ST.pubOpen=true;const side=$("#pc_s").value,ti=$("#pc_t").value.trim(),cv=$("#pc_c").files[0],pg=[...$("#pc_p").files];
+  const bad=chkComic(ti,cv,pg);if(bad)return say2("pc_m",bad,"err");
+  say2("pc_m",U.uploading);const sp=await spaceFor(side);
+  await saveComic(sp.id,ti,$("#pc_d").value.trim(),cv,pg,$("#pc_u").checked,"pc_m");ST.pubOpen=false},
+ async avup(inp){const f=inp.files[0];if(!f)return;if(!/^image\/(jpeg|png|webp)$/.test(f.type)||f.size>8388608)return say2("avmsg",U.photoBad,"err");
+  say2("avmsg",U.uploading);const blob=await cropSquare(f,320),path=uid()+"/"+Date.now()+".jpg",old=DATA.me&&DATA.me.avatar_path;
+  await DB.up(path,blob,"avatars");const r=await DB.upd("profiles",{id:"eq."+uid()},{avatar_path:path});DATA.me=r[0]||DATA.me;if(old)DB.rm([old],"avatars");
+  reset("members","forum_night","forum_day","studio");updTop();refresh();say2("avmsg",U.saved,"ok")},
+ async avrm(){const old=DATA.me&&DATA.me.avatar_path;const r=await DB.upd("profiles",{id:"eq."+uid()},{avatar_path:null});DATA.me=r[0]||DATA.me;if(old)DB.rm([old],"avatars");reset("members","forum_night","forum_day","studio");updTop();refresh()},
  async pubtoggle(a){const[i,v]=a.split(":");await DB.upd("comics",{id:"eq."+i},{published:v==="1"});reset("studio","fc");bump();refresh()},
  async delcomic(a){if(!confirm(t(U.sure)))return;const c=DATA.byId[a];await DB.del("comics",{id:"eq."+a});if(c)DB.rm([c.cover_path].concat(c.pages||[]).filter(Boolean));reset("studio","fc","favs");bump();refresh()},
  async delspace(a){if(!confirm(t(U.sure)))return;const sp=(DATA.studio||[]).find(s=>s.id===a);await DB.del("spaces",{id:"eq."+a});if(sp)DB.rm((sp.comics||[]).flatMap(c=>[c.cover_path].concat(c.pages||[]).filter(Boolean)));reset("studio","fc");bump();refresh()},
  async review(a){const[u,v]=a.split(":");await DB.rpc("review_publisher",{target:u,approve:v==="1"});reset("reqs");refresh()},
  async admsearch(){const s=$("#adm_q").value.trim().replace(/[,()*%]/g,"");if(!s)return;
-  DATA.users=await DB.sel("profiles",{select:"id,username,display_name,role",or:"(username.ilike.*"+s+"*,display_name.ilike.*"+s+"*)",limit:20});refresh()},
+  DATA.users=await DB.sel("profiles",{select:"id,username,display_name,role"+avs(),or:"(username.ilike.*"+s+"*,display_name.ilike.*"+s+"*)",limit:20});refresh()},
  async setrole(a){await DB.rpc("set_user_role",{target:a,new_role:$("#rl_"+a).value});toast(U.saved);ACT.admsearch()},
  async changepw(){const v=$("#s_pw").value;if(v.length<6)return say2("smsg",M.E.short,"err");try{await AUTH.setPassword(v);$("#s_pw").value="";say2("smsg",M.E.saved,"ok")}catch(e){say2("smsg",errMsg(e),"err")}},
  async delacct(){if(!confirm(t(U.delAcctSure)))return;await DB.rpc("delete_my_account");await AUTH.signOut();ST.page="home";afterAuth();render()}};
 function commClick(e){
  const f=e.target.closest("[data-fav]");if(f){toggleFav(f.dataset.fav);return true}
- const fi=e.target.closest("[data-fitem]");if(fi){ST.mode=fi.dataset.fmode;save();ST.back="me";ST.item=fi.dataset.fitem;ST.page="item";render();scrollTo(0,0);return true}
+ const fp=e.target.closest("[data-fpost]");if(fp&&!e.target.closest("[data-fav]")){ST.mode=fp.dataset.fmode;save();ST.openT=fp.dataset.fpost;ST.page="p6";render();scrollTo(0,0);return true}
  const a=e.target.closest("[data-act]");if(a){const fn=ACT[a.dataset.act];if(fn){Promise.resolve().then(()=>fn(a.dataset.arg,a)).catch(err=>toast(errP(err)))}return true}
+ const us=e.target.closest("[data-user]");if(us){openUser(us.dataset.user);return true}
  return false}
 async function toggleFav(ref){
  if(!AUTH.user()){toast(U.needLogin);navTo("login");return}
  const on=isFav(ref);DATA.favs=Array.isArray(DATA.favs)?DATA.favs.slice():[];
  if(on)DATA.favs=DATA.favs.filter(x=>x!==ref);else DATA.favs.unshift(ref);refresh();
- try{if(on)await DB.del("favorites",{user_id:"eq."+uid(),ref:"eq."+ref});else await DB.ins("favorites",{user_id:uid(),ref});reset("fc")}
+ try{if(on)await DB.del("favorites",{user_id:"eq."+uid(),ref:"eq."+ref});else await DB.ins("favorites",{user_id:uid(),ref});reset("fc","fp")}
  catch(e){reset("favs");need("favs",L.favs);toast(errP(e))}}
 
 function keepForm(){ST.f=ST.f||{};["f_name","f_last","f_user","f_email"].forEach(i=>{const e=$("#"+i);if(e)ST.f[i]=e.value})}
@@ -980,7 +1138,7 @@ document.addEventListener("click",e=>{
    wipe.style.transition="transform .65s cubic-bezier(.6,0,.3,1)";wipe.style.transform="scale(0)";
    try{const ic=$("#themeBtn svg");if(ic)ic.animate({transform:["rotate(-200deg) scale(.3)","none"]},{duration:600,delay:250,easing:"cubic-bezier(.2,.8,.2,1)",fill:"backwards"})}catch(e){}
    setTimeout(()=>{wipe.style.opacity=0;busy=false},700)}))},580)});
-addEventListener('DOMContentLoaded',()=>{const im=new Image();const go=()=>{render();AUTH.boot().then(c=>{afterAuth();if(ST.page==="me"&&!AUTH.user())ST.page="login";if(ST.page==="login"&&AUTH.user()&&AUTH.on&&ST.auth!=="reset")ST.page="me";if(c||AUTH.user())render()})};im.onload=()=>{for(const k in IMG)IMG[k]=toBlobURL(IMG[k]);go()};im.onerror=go;im.src=toBlobURL(IMG.logoBat)});
+addEventListener('DOMContentLoaded',()=>{const im=new Image();const go=()=>{(AUTH.on?probeCaps():Promise.resolve()).then(()=>{render();AUTH.boot().then(c=>{afterAuth();if(ST.page==="me"&&!AUTH.user())ST.page="login";if(ST.page==="login"&&AUTH.user()&&AUTH.on&&ST.auth!=="reset")ST.page="me";if(c||AUTH.user())render()})})};im.onload=()=>{for(const k in IMG)IMG[k]=toBlobURL(IMG[k]);go()};im.onerror=go;im.src=toBlobURL(IMG.logoBat)});
 </script>
 
 <!-- ===== الصور (مضمّنة داخل الملف). لإضافة صورة معدة: أضف مفتاحها هنا مثل "g_car":"data:image/jpeg;base64,..." ===== -->
